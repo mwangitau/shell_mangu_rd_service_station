@@ -24,8 +24,6 @@
       --success:  #10b981;
       --danger:   #ef4444;
     }
-
-    /* ─── LIGHT THEME ─── */
     [data-theme="light"] {
       --night:  #f1f5f9;
       --deep:   #e2e8f0;
@@ -43,544 +41,135 @@
       --success:#059669;
       --danger: #dc2626;
     }
-
-    /* light: flip grid lines to dark-on-light */
     [data-theme="light"] body::before {
       background-image:
         linear-gradient(rgba(15,31,61,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(15,31,61,0.04) 1px, transparent 1px);
     }
-
-    /* light: orb colours shift to warmer, softer tones */
-    [data-theme="light"] .orb-1 {
-      background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%);
-    }
-    [data-theme="light"] .orb-2 {
-      background: radial-gradient(circle, rgba(234,88,12,0.12) 0%, transparent 70%);
-    }
-    [data-theme="light"] .orb-3 {
-      background: radial-gradient(circle, rgba(5,150,105,0.09) 0%, transparent 70%);
-    }
-
-    /* light: cards need a visible shadow to lift off the background */
-    [data-theme="light"] .ticker-card,
-    [data-theme="light"] .dash-card {
-      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-    }
-    [data-theme="light"] .ticker-card:hover {
-      border-color: rgba(0,0,0,0.18);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.14);
-    }
-    [data-theme="light"] .dash-card:hover {
-      box-shadow: 0 32px 64px rgba(0,0,0,0.18);
-      border-color: rgba(0,0,0,0.18);
-    }
-
-    /* light: ticker value white → near-black */
+    [data-theme="light"] .orb-1 { background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%); }
+    [data-theme="light"] .orb-2 { background: radial-gradient(circle, rgba(234,88,12,0.12) 0%, transparent 70%); }
+    [data-theme="light"] .orb-3 { background: radial-gradient(circle, rgba(5,150,105,0.09) 0%, transparent 70%); }
+    [data-theme="light"] .ticker-card, [data-theme="light"] .dash-card { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+    [data-theme="light"] .ticker-card:hover { border-color: rgba(0,0,0,0.18); box-shadow: 0 20px 48px rgba(0,0,0,0.14); }
+    [data-theme="light"] .dash-card:hover { box-shadow: 0 32px 64px rgba(0,0,0,0.18); border-color: rgba(0,0,0,0.18); }
     [data-theme="light"] .ticker-value { color: #0f172a; }
-
-    /* light: card titles white → near-black */
     [data-theme="light"] .card-title { color: #0f172a; }
-
-    /* light: brand gradient stays amber/orange but anchors to dark */
-    [data-theme="light"] .brand-name {
-      background: linear-gradient(135deg, #1e3c72 0%, var(--glow) 60%, var(--glow2) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-
-    /* light: skeleton shimmer */
-    [data-theme="light"] .skeleton {
-      background: linear-gradient(90deg, var(--steel) 25%, rgba(255,255,255,0.8) 50%, var(--steel) 75%);
-      background-size: 200% 100%;
-    }
-
-    /* light: card arrow */
+    [data-theme="light"] .brand-name { background: linear-gradient(135deg, #1e3c72 0%, var(--glow) 60%, var(--glow2) 100%); -webkit-background-clip: text; background-clip: text; }
+    [data-theme="light"] .skeleton { background: linear-gradient(90deg, var(--steel) 25%, rgba(255,255,255,0.8) 50%, var(--steel) 75%); background-size: 200% 100%; }
     [data-theme="light"] .card-arrow { background: rgba(0,0,0,0.07); color: #1e3c72; }
     [data-theme="light"] .dash-card:hover .card-arrow { background: rgba(217,119,6,0.15); }
-
-    /* light: footer copy */
     [data-theme="light"] .footer-copy strong { color: #334155; }
-
-    /* ─── THEME TOGGLE BUTTON ─── */
     .theme-toggle {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: var(--panel);
-      border: 1px solid var(--rim);
-      border-radius: 100px;
-      cursor: pointer;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--muted);
-      transition: background 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
-      outline: none;
-      user-select: none;
+      display: flex; align-items: center; gap: 8px; padding: 8px 16px;
+      background: var(--panel); border: 1px solid var(--rim); border-radius: 100px;
+      cursor: pointer; font-family: 'Space Mono', monospace; font-size: 0.72rem;
+      color: var(--muted); transition: background 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+      outline: none; user-select: none;
     }
-    .theme-toggle:hover {
-      border-color: var(--glow);
-      color: var(--glow);
-      box-shadow: 0 0 12px rgba(245,158,11,0.15);
-    }
-    .theme-toggle .toggle-track {
-      width: 32px; height: 18px;
-      background: var(--rim);
-      border-radius: 9px;
-      position: relative;
-      transition: background 0.3s ease;
-      flex-shrink: 0;
-    }
-    .theme-toggle .toggle-thumb {
-      position: absolute;
-      top: 3px; left: 3px;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      background: var(--muted);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
+    .theme-toggle:hover { border-color: var(--glow); color: var(--glow); box-shadow: 0 0 12px rgba(245,158,11,0.15); }
+    .theme-toggle .toggle-track { width: 32px; height: 18px; background: var(--rim); border-radius: 9px; position: relative; transition: background 0.3s ease; flex-shrink: 0; }
+    .theme-toggle .toggle-thumb { position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: var(--muted); transition: transform 0.3s ease, background 0.3s ease; }
     [data-theme="light"] .theme-toggle .toggle-track { background: rgba(217,119,6,0.25); }
     [data-theme="light"] .theme-toggle .toggle-thumb { transform: translateX(14px); background: var(--glow); }
-
-    /* header right cluster */
-    .header-right-cluster {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
+    .header-right-cluster { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--night);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-      transition: background 0.4s ease, color 0.35s ease;
-    }
-
-    /* ─── BACKGROUND GRID ─── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(245,158,11,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245,158,11,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ─── AMBIENT ORBS ─── */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(100px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .orb-1 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
-      top: -200px; left: -200px;
-      animation: drift1 18s ease-in-out infinite;
-    }
-    .orb-2 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(234,88,12,0.10) 0%, transparent 70%);
-      bottom: -100px; right: -100px;
-      animation: drift2 22s ease-in-out infinite;
-    }
-    .orb-3 {
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(52,211,153,0.06) 0%, transparent 70%);
-      top: 50%; left: 50%;
-      animation: drift3 14s ease-in-out infinite;
-    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--night); color: var(--text); min-height: 100vh; overflow-x: hidden; transition: background 0.4s ease, color 0.35s ease; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(245,158,11,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
+    .orb { position: fixed; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%); top: -200px; left: -200px; animation: drift1 18s ease-in-out infinite; }
+    .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(234,88,12,0.10) 0%, transparent 70%); bottom: -100px; right: -100px; animation: drift2 22s ease-in-out infinite; }
+    .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(52,211,153,0.06) 0%, transparent 70%); top: 50%; left: 50%; animation: drift3 14s ease-in-out infinite; }
     @keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(60px,80px)} }
     @keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-80px,-60px)} }
     @keyframes drift3 { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.3)} }
-
-    /* ─── WRAPPER ─── */
-    .wrapper {
-      position: relative;
-      z-index: 1;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 40px 24px 60px;
-    }
-
-    /* ─── HEADER ─── */
-    .site-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 64px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--rim);
-      animation: fadeDown 0.7s ease both;
-    }
-    .brand-block {}
-    .brand-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      letter-spacing: 3px;
-      line-height: 1;
-      background: linear-gradient(135deg, #fff 0%, var(--glow) 60%, var(--glow2) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .brand-sub {
-      font-size: 0.8rem;
-      color: var(--muted);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-    .live-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: var(--panel);
-      border: 1px solid var(--rim);
-      border-radius: 100px;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .live-dot {
-      width: 8px; height: 8px;
-      background: var(--success);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-      box-shadow: 0 0 8px var(--success);
-    }
+    .wrapper { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 40px 24px 60px; }
+    .site-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 64px; padding-bottom: 32px; border-bottom: 1px solid var(--rim); animation: fadeDown 0.7s ease both; }
+    .brand-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: 3px; line-height: 1; background: linear-gradient(135deg, #fff 0%, var(--glow) 60%, var(--glow2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .brand-sub { font-size: 0.8rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+    .live-badge { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--panel); border: 1px solid var(--rim); border-radius: 100px; font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--muted); }
+    .live-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; animation: pulse 2s ease-in-out infinite; box-shadow: 0 0 8px var(--success); }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
     #live-time { color: var(--glow); font-family: 'Space Mono', monospace; }
-
-    /* ─── TODAY'S SALES SECTION ─── */
-    .today-section {
-      margin-bottom: 64px;
-      animation: fadeUp 0.8s ease 0.15s both;
-    }
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--rim);
-    }
-    .sales-ticker {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    /* ─── TICKER CARD ─── */
-    .ticker-card {
-      position: relative;
-      background: var(--panel);
-      border: 1px solid var(--rim);
-      border-radius: 16px;
-      padding: 24px;
-      overflow: hidden;
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-    .ticker-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      border-radius: 16px 16px 0 0;
-    }
+    .today-section { margin-bottom: 64px; animation: fadeUp 0.8s ease 0.15s both; }
+    .section-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rim); }
+    .sales-ticker { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .ticker-card { position: relative; background: var(--panel); border: 1px solid var(--rim); border-radius: 16px; padding: 24px; overflow: hidden; transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+    .ticker-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: 16px 16px 0 0; }
     .ticker-card.dx::before  { background: var(--dx); }
     .ticker-card.ux::before  { background: var(--ux); }
     .ticker-card.vp::before  { background: var(--vp); }
     .ticker-card.lpg::before { background: var(--lpg); }
-
-    .ticker-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.15);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.4);
-    }
-    .ticker-glow {
-      position: absolute;
-      top: -30px; right: -30px;
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      filter: blur(40px);
-      opacity: 0.25;
-      pointer-events: none;
-    }
+    .ticker-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.15); box-shadow: 0 20px 48px rgba(0,0,0,0.4); }
+    .ticker-glow { position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; filter: blur(40px); opacity: 0.25; pointer-events: none; }
     .ticker-card.dx  .ticker-glow { background: var(--dx); }
     .ticker-card.ux  .ticker-glow { background: var(--ux); }
     .ticker-card.vp  .ticker-glow { background: var(--vp); }
     .ticker-card.lpg .ticker-glow { background: var(--lpg); }
-
-    .ticker-label {
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-    .ticker-product {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-    }
+    .ticker-label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .ticker-product { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 16px; }
     .ticker-card.dx  .ticker-product { color: var(--dx); }
     .ticker-card.ux  .ticker-product { color: var(--ux); }
     .ticker-card.vp  .ticker-product { color: var(--vp); }
     .ticker-card.lpg .ticker-product { color: var(--lpg); }
-
-    .ticker-value {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 3.5vw, 3rem);
-      line-height: 1;
-      color: #fff;
-    }
-    .ticker-unit {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      color: var(--muted);
-      font-weight: 400;
-    }
-    .ticker-sub {
-      margin-top: 12px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .ticker-vs {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-weight: 700;
-    }
+    .ticker-value { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 3.5vw, 3rem); line-height: 1; color: #fff; }
+    .ticker-unit { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--muted); font-weight: 400; }
+    .ticker-sub { margin-top: 12px; font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .ticker-vs { font-family: 'Space Mono', monospace; font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 700; }
     .ticker-vs.up   { background: rgba(16,185,129,0.15); color: var(--success); }
     .ticker-vs.down { background: rgba(239,68,68,0.15);  color: var(--danger); }
     .ticker-vs.flat { background: rgba(100,116,139,0.2); color: var(--muted); }
-
-    .ticker-loading {
-      height: 48px;
-      display: flex;
-      align-items: center;
-    }
-    .skeleton {
-      height: 40px;
-      width: 120px;
-      background: linear-gradient(90deg, var(--steel) 25%, rgba(255,255,255,0.06) 50%, var(--steel) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s infinite;
-      border-radius: 6px;
-    }
+    .ticker-loading { height: 48px; display: flex; align-items: center; }
+    .skeleton { height: 40px; width: 120px; background: linear-gradient(90deg, var(--steel) 25%, rgba(255,255,255,0.06) 50%, var(--steel) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 6px; }
     @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-
-    /* ─── DATE STRIP ─── */
-    .date-strip {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 64px;
-      padding: 16px 24px;
-      background: var(--panel);
-      border: 1px solid var(--rim);
-      border-radius: 12px;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--muted);
-      animation: fadeUp 0.8s ease 0.2s both;
-    }
+    .date-strip { display: flex; align-items: center; gap: 20px; margin-bottom: 64px; padding: 16px 24px; background: var(--panel); border: 1px solid var(--rim); border-radius: 12px; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--muted); animation: fadeUp 0.8s ease 0.2s both; }
     .date-strip .highlight { color: var(--glow); }
     .date-strip .sep { color: var(--rim); }
-
-    /* ─── DASHBOARD GRID ─── */
-    .dashboards-section {
-      animation: fadeUp 0.8s ease 0.3s both;
-    }
-    .dash-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    /* ─── DASHBOARD CARD ─── */
-    .dash-card {
-      position: relative;
-      background: var(--panel);
-      border: 1px solid var(--rim);
-      border-radius: 20px;
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      group: true;
-    }
-    .dash-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 32px 64px rgba(0,0,0,0.5);
-      border-color: rgba(255,255,255,0.15);
-    }
-
-    /* Stripe accent top */
-    .dash-card .card-accent {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-    }
+    .dashboards-section { animation: fadeUp 0.8s ease 0.3s both; }
+    .dash-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .dash-card { position: relative; background: var(--panel); border: 1px solid var(--rim); border-radius: 20px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+    .dash-card:hover { transform: translateY(-6px); box-shadow: 0 32px 64px rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.15); }
+    .dash-card .card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
     .card-1 .card-accent { background: linear-gradient(90deg, #1e3c72, #7e22ce); }
     .card-2 .card-accent { background: linear-gradient(90deg, #0077cc, #00c6ff); }
     .card-3 .card-accent { background: linear-gradient(90deg, #f59e0b, #ef4444); }
     .card-4 .card-accent { background: linear-gradient(90deg, #059669, #34d399); }
-
-    /* Ambient background glow on hover */
-    .dash-card .card-bg-glow {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
+    .dash-card .card-bg-glow { position: absolute; inset: 0; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
     .card-1 .card-bg-glow { background: radial-gradient(circle at 80% 20%, rgba(126,34,206,0.12) 0%, transparent 60%); }
     .card-2 .card-bg-glow { background: radial-gradient(circle at 80% 20%, rgba(0,119,204,0.12) 0%, transparent 60%); }
     .card-3 .card-bg-glow { background: radial-gradient(circle at 80% 20%, rgba(245,158,11,0.12) 0%, transparent 60%); }
     .card-4 .card-bg-glow { background: radial-gradient(circle at 80% 20%, rgba(52,211,153,0.12) 0%, transparent 60%); }
     .dash-card:hover .card-bg-glow { opacity: 1; }
-
-    .card-inner {
-      padding: 32px;
-      position: relative;
-      z-index: 1;
-    }
-    .card-emoji {
-      font-size: 3rem;
-      display: block;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease;
-    }
+    .card-inner { padding: 32px; position: relative; z-index: 1; }
+    .card-emoji { font-size: 3rem; display: block; margin-bottom: 20px; transition: transform 0.3s ease; }
     .dash-card:hover .card-emoji { transform: scale(1.1) rotate(-3deg); }
-
-    .card-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .card-desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .meta-pill {
-      padding: 4px 12px;
-      border-radius: 100px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
+    .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #fff; margin-bottom: 8px; }
+    .card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+    .card-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .meta-pill { padding: 4px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
     .pill-blue   { background: rgba(30,60,114,0.5); color: #93c5fd; border: 1px solid rgba(30,60,114,0.8); }
     .pill-purple { background: rgba(126,34,206,0.3); color: #c4b5fd; border: 1px solid rgba(126,34,206,0.5); }
     .pill-amber  { background: rgba(245,158,11,0.2); color: #fcd34d; border: 1px solid rgba(245,158,11,0.4); }
     .pill-red    { background: rgba(239,68,68,0.2);  color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
     .pill-green  { background: rgba(5,150,105,0.2);  color: #6ee7b7; border: 1px solid rgba(5,150,105,0.4); }
     .pill-slate  { background: rgba(100,116,139,0.2); color: #94a3b8; border: 1px solid rgba(100,116,139,0.4); }
-
-    .card-arrow {
-      position: absolute;
-      bottom: 32px; right: 32px;
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: var(--rim);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      transition: transform 0.3s ease, background 0.3s ease;
-      z-index: 2;
-    }
-    .dash-card:hover .card-arrow {
-      transform: translate(4px, -4px);
-      background: rgba(245,158,11,0.2);
-    }
-
-    /* ─── FOOTER ─── */
-    .site-footer {
-      margin-top: 80px;
-      padding-top: 32px;
-      border-top: 1px solid var(--rim);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 0.78rem;
-      color: var(--muted);
-      animation: fadeUp 0.8s ease 0.5s both;
-    }
+    .card-arrow { position: absolute; bottom: 32px; right: 32px; width: 40px; height: 40px; border-radius: 50%; background: var(--rim); display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: transform 0.3s ease, background 0.3s ease; z-index: 2; }
+    .dash-card:hover .card-arrow { transform: translate(4px, -4px); background: rgba(245,158,11,0.2); }
+    .site-footer { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--rim); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 0.78rem; color: var(--muted); animation: fadeUp 0.8s ease 0.5s both; }
     .footer-copy strong { color: rgba(255,255,255,0.5); }
     .footer-legal { max-width: 520px; line-height: 1.6; text-align: right; }
-
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeDown {
-      from { transform: translateY(-20px); opacity: 0; }
-      to   { transform: translateY(0);     opacity: 1; }
-    }
-    @keyframes fadeUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to   { transform: translateY(0);    opacity: 1; }
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      .dash-grid { grid-template-columns: 1fr; }
-      .sales-ticker { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 560px) {
-      .sales-ticker { grid-template-columns: 1fr 1fr; }
-      .site-header { flex-direction: column; gap: 16px; }
-      .footer-legal { text-align: left; }
-    }
+    @keyframes fadeDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes fadeUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @media (max-width: 900px) { .dash-grid { grid-template-columns: 1fr; } .sales-ticker { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .sales-ticker { grid-template-columns: 1fr 1fr; } .site-header { flex-direction: column; gap: 16px; } .footer-legal { text-align: left; } }
   </style>
 </head>
 <body>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
-
   <div class="wrapper">
-
-    <!-- HEADER -->
     <header class="site-header">
       <div class="brand-block">
         <div class="brand-name">Kiryan Energy Ltd</div>
@@ -599,75 +188,50 @@
         </div>
       </div>
     </header>
-
-    <!-- DATE CONTEXT STRIP -->
     <div class="date-strip" id="dateStrip">
       <span>📅 Today:</span>
       <span class="highlight" id="todayLabel">—</span>
       <span class="sep">|</span>
       <span id="monthContext">Loading data…</span>
     </div>
-
-    <!-- TODAY'S SALES TICKER -->
     <section class="today-section">
       <div class="section-label">⚡ Today's Average Sales — Live from Google Sheets</div>
       <div class="sales-ticker">
-
-        <!-- DX Diesel -->
         <div class="ticker-card dx">
           <div class="ticker-glow"></div>
           <div class="ticker-label">Product</div>
           <div class="ticker-product">DX Diesel</div>
-          <div class="ticker-loading" id="ticker-DX">
-            <div class="skeleton"></div>
-          </div>
+          <div class="ticker-loading" id="ticker-DX"><div class="skeleton"></div></div>
           <div class="ticker-sub" id="sub-DX">—</div>
         </div>
-
-        <!-- UX Unleaded -->
         <div class="ticker-card ux">
           <div class="ticker-glow"></div>
           <div class="ticker-label">Product</div>
           <div class="ticker-product">UX Unleaded</div>
-          <div class="ticker-loading" id="ticker-UX">
-            <div class="skeleton"></div>
-          </div>
+          <div class="ticker-loading" id="ticker-UX"><div class="skeleton"></div></div>
           <div class="ticker-sub" id="sub-UX">—</div>
         </div>
-
-        <!-- VP V-Power -->
         <div class="ticker-card vp">
           <div class="ticker-glow"></div>
           <div class="ticker-label">Product</div>
           <div class="ticker-product">VP V-Power</div>
-          <div class="ticker-loading" id="ticker-VP">
-            <div class="skeleton"></div>
-          </div>
+          <div class="ticker-loading" id="ticker-VP"><div class="skeleton"></div></div>
           <div class="ticker-sub" id="sub-VP">—</div>
         </div>
-
-        <!-- LPG Gas -->
         <div class="ticker-card lpg">
           <div class="ticker-glow"></div>
           <div class="ticker-label">Product</div>
           <div class="ticker-product">LPG Gas</div>
-          <div class="ticker-loading" id="ticker-LPG">
-            <div class="skeleton"></div>
-          </div>
+          <div class="ticker-loading" id="ticker-LPG"><div class="skeleton"></div></div>
           <div class="ticker-sub" id="sub-LPG">—</div>
         </div>
-
       </div>
     </section>
-
-    <!-- DASHBOARDS -->
     <section class="dashboards-section">
       <div class="section-label">🚀 Dashboard Suite</div>
       <div class="dash-grid">
-
         <a href="./fuel/fuel_dashboard_easy_config.html" class="dash-card card-1">
-          <div class="card-accent"></div>
-          <div class="card-bg-glow"></div>
+          <div class="card-accent"></div><div class="card-bg-glow"></div>
           <div class="card-inner">
             <span class="card-emoji">⛽</span>
             <div class="card-title">Fuel Per Pump</div>
@@ -680,10 +244,8 @@
           </div>
           <div class="card-arrow">→</div>
         </a>
-
         <a href="./Product/product_dashboard.html" class="dash-card card-3">
-          <div class="card-accent"></div>
-          <div class="card-bg-glow"></div>
+          <div class="card-accent"></div><div class="card-bg-glow"></div>
           <div class="card-inner">
             <span class="card-emoji">📊</span>
             <div class="card-title">Product Analysis</div>
@@ -696,10 +258,8 @@
           </div>
           <div class="card-arrow">→</div>
         </a>
-
         <a href="./Gas/gas_dashboard_pivot_format.html" class="dash-card card-4">
-          <div class="card-accent"></div>
-          <div class="card-bg-glow"></div>
+          <div class="card-accent"></div><div class="card-bg-glow"></div>
           <div class="card-inner">
             <span class="card-emoji">🔥</span>
             <div class="card-title">Gas Operations</div>
@@ -712,10 +272,8 @@
           </div>
           <div class="card-arrow">→</div>
         </a>
-
         <a href="./staff_dashboard.html" class="dash-card card-2" style="grid-column: 1 / -1;">
-          <div class="card-accent"></div>
-          <div class="card-bg-glow"></div>
+          <div class="card-accent"></div><div class="card-bg-glow"></div>
           <div class="card-inner">
             <span class="card-emoji">👥</span>
             <div class="card-title">Staff Management</div>
@@ -728,21 +286,12 @@
           </div>
           <div class="card-arrow">→</div>
         </a>
-
       </div>
     </section>
-
-    <!-- FOOTER -->
     <footer class="site-footer">
-      <div class="footer-copy">
-        <strong>© 2026 Kiryan Energy Ltd</strong> · All Rights Reserved
-      </div>
-      <div class="footer-legal">
-        <strong>Confidential.</strong> These dashboards are for official use only.
-        Unauthorised access, reproduction or distribution is prohibited.
-      </div>
+      <div class="footer-copy"><strong>© 2026 Kiryan Energy Ltd</strong> · All Rights Reserved</div>
+      <div class="footer-legal"><strong>Confidential.</strong> These dashboards are for official use only. Unauthorised access, reproduction or distribution is prohibited.</div>
     </footer>
-
   </div>
 
   <script>
@@ -757,25 +306,23 @@
 
     // ─── DATE LABEL ───────────────────────────────────────────────────────────
     const TODAY = new Date();
-    const TODAY_STR = TODAY.toISOString().split('T')[0]; // YYYY-MM-DD
+    const TODAY_STR = TODAY.toISOString().split('T')[0];
     document.getElementById('todayLabel').textContent =
       TODAY.toLocaleDateString('en-KE', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
 
-    // ─── DATA SOURCES ─────────────────────────────────────────────────────────
-    // Fuel products (Product dashboard sheet)
+    // ─── DATA SOURCES — ALL CORRECT CSV FORMAT ────────────────────────────────
     const FUEL_SOURCES = {
+      "March 2026":    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQDJzPxoc6HokAOFkDAGx9zdC04ngLnQS7wCTGUz1w7RxhmaHPDvKfIqdzLQsUy6e7bJEHRGDUk5jnR/pub?gid=1772695434&single=true&output=csv",
       "February 2026": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWCk42WV4zp0FBWtNJmxIsFW88QPRxE-2S8cnKG205VfA9ntl_2xMhrTyuRPWS82kDtaszDFDyv7r5/pub?gid=1772695434&single=true&output=csv",
       "January 2026":  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRT8Kama3jzM7pEBPHUY-hUKgiV5Mbp0VC5CN4_-r2MckRoU2xxGcwQb31qeRKjXLg2NHH0eDQlmu3C/pub?gid=1772695434&single=true&output=csv",
-      "March 2026": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQDJzPxoc6HokAOFkDAGx9zdC04ngLnQS7wCTGUz1w7RxhmaHPDvKfIqdzLQsUy6e7bJEHRGDUk5jnR/pubhtml?gid=1772695434&single=true",
-    };
-    // LPG Gas (Gas dashboard sheet)
-    const GAS_SOURCES = {
-      "February 2026": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWCk42WV4zp0FBWtNJmxIsFW88QPRxE-2S8cnKG205VfA9ntl_2xMhrTyuRPWS82kDtaszDFDyv7r5/pub?gid=285948413&single=true&output=csv",
-      "January 2026":  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRT8Kama3jzM7pEBPHUY-hUKgiV5Mbp0VC5CN4_-r2MckRoU2xxGcwQb31qeRKjXLg2NHH0eDQlmu3C/pub?gid=285948413&single=true&output=csv",
-      "March 2026": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQDJzPxoc6HokAOFkDAGx9zdC04ngLnQS7wCTGUz1w7RxhmaHPDvKfIqdzLQsUy6e7bJEHRGDUk5jnR/pubhtml?gid=285948413&single=true",
     };
 
-    // Monthly targets for context
+    const GAS_SOURCES = {
+      "March 2026":    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQDJzPxoc6HokAOFkDAGx9zdC04ngLnQS7wCTGUz1w7RxhmaHPDvKfIqdzLQsUy6e7bJEHRGDUk5jnR/pub?gid=285948413&single=true&output=csv",
+      "February 2026": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWCk42WV4zp0FBWtNJmxIsFW88QPRxE-2S8cnKG205VfA9ntl_2xMhrTyuRPWS82kDtaszDFDyv7r5/pub?gid=285948413&single=true&output=csv",
+      "January 2026":  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRT8Kama3jzM7pEBPHUY-hUKgiV5Mbp0VC5CN4_-r2MckRoU2xxGcwQb31qeRKjXLg2NHH0eDQlmu3C/pub?gid=285948413&single=true&output=csv",
+    };
+
     const TARGETS = { DX: 91152, UX: 88593, VP: 11104 };
 
     // ─── HELPERS ──────────────────────────────────────────────────────────────
@@ -795,9 +342,18 @@
       return new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
     }
 
-    function isCurrentMonth(monthStr) {
-      const d = new Date(monthStr + ' 1');
-      return d.getFullYear() === TODAY.getFullYear() && d.getMonth() === TODAY.getMonth();
+    // ─── KEY FIX: Smart month ordering — prefer current calendar month ────────
+    // Returns months sorted: current month first, then most-recent previous months
+    function getOrderedMonths(sources) {
+      const months = Object.keys(sources);
+      const now = new Date();
+      const currentMonthLabel = now.toLocaleString('en-US', { month: 'long' }) + ' ' + now.getFullYear();
+
+      // Put current month at front if it exists, rest follow in original order
+      return [
+        ...months.filter(m => m === currentMonthLabel),
+        ...months.filter(m => m !== currentMonthLabel),
+      ];
     }
 
     function setTicker(product, value, unit, sub, vsClass, vsText) {
@@ -814,25 +370,31 @@
     function setTickerError(product, msg) {
       document.getElementById('ticker-' + product).innerHTML =
         `<span style="color:var(--muted);font-size:0.8rem">${msg}</span>`;
+      document.getElementById('sub-' + product).textContent = '';
     }
 
     // ─── FUEL DATA FETCH ──────────────────────────────────────────────────────
     async function fetchFuelData() {
-      // Try current month first, then previous
-      const months = Object.keys(FUEL_SOURCES);
+      const orderedMonths = getOrderedMonths(FUEL_SOURCES);
 
-      for (const month of months) {
+      for (const month of orderedMonths) {
         try {
           const resp = await fetch(FUEL_SOURCES[month]);
           if (!resp.ok) continue;
-          const text = await resp.text();
-          const lines = text.trim().split('\n');
 
-          // Build headers from first line
+          const text = await resp.text();
+
+          // Guard: if response looks like HTML (pubhtml mistake), skip it
+          if (text.trim().startsWith('<!')) {
+            console.warn(`Skipping ${month} — response is HTML not CSV`);
+            continue;
+          }
+
+          const lines = text.trim().split('\n');
           const headers = parseCsvLine(lines[0]);
 
           let lastDate = null;
-          const records = []; // { date, product, meterSale }
+          const records = [];
 
           lines.slice(1).forEach(line => {
             const cols = parseCsvLine(line);
@@ -856,28 +418,34 @@
             if (meterSale > 0) records.push({ date: lastDate, product: prod, meterSale });
           });
 
-          if (!records.length) continue;
+          // KEY FIX: skip this month if it has no records yet — try the next one
+          if (!records.length) {
+            console.log(`${month}: no fuel records yet, trying previous month…`);
+            continue;
+          }
 
-          // Sort & compute averages
           records.sort((a,b) => a.date.localeCompare(b.date));
           const latestDate = records[records.length - 1].date;
           const daysInMonth = getDaysInMonth(month);
-          const isCurrent = isCurrentMonth(month);
-          // Days elapsed = yesterday if current month, else total days with data
+
           const uniqueDays = [...new Set(records.map(r => r.date))];
-          const daysElapsed = isCurrent
-            ? Math.max(TODAY.getDate() - 1, 1)
+          const now = new Date();
+          const monthDate = new Date(month + ' 1');
+          const isCurrentMonth = now.getFullYear() === monthDate.getFullYear() && now.getMonth() === monthDate.getMonth();
+
+          // Divide by completed days: yesterday if current month, else all data days
+          const daysElapsed = isCurrentMonth
+            ? Math.max(now.getDate() - 1, 1)
             : uniqueDays.length;
 
-          // Per-product totals
           const totals = { DX:0, UX:0, VP:0 };
           records.forEach(r => { totals[r.product] = (totals[r.product]||0) + r.meterSale; });
 
-          // Today's actual (if exists)
-          const todayRecords = records.filter(r => r.date === TODAY_STR);
           const todaySales = { DX:0, UX:0, VP:0 };
-          todayRecords.forEach(r => { todaySales[r.product] = (todaySales[r.product]||0) + r.meterSale; });
-          const hasTodayData = todayRecords.length > 0;
+          records.filter(r => r.date === TODAY_STR).forEach(r => {
+            todaySales[r.product] = (todaySales[r.product]||0) + r.meterSale;
+          });
+          const hasTodayData = records.some(r => r.date === TODAY_STR);
 
           ['DX','UX','VP'].forEach(p => {
             const avg = totals[p] / daysElapsed;
@@ -885,8 +453,7 @@
             const pctOfTarget = ((avg / dailyTarget) * 100).toFixed(0);
             const vsClass = avg >= dailyTarget ? 'up' : avg >= dailyTarget * 0.85 ? 'flat' : 'down';
             const vsText = (avg >= dailyTarget ? '▲ ' : '▼ ') + pctOfTarget + '% of target';
-
-            let sub = `Avg over ${daysElapsed} day${daysElapsed > 1 ? 's' : ''}`;
+            let sub = `Avg · ${month} · ${daysElapsed} day${daysElapsed > 1 ? 's' : ''}`;
             if (hasTodayData && todaySales[p] > 0) {
               sub = `Today: ${todaySales[p].toLocaleString(undefined,{maximumFractionDigits:0})} L`;
             }
@@ -894,32 +461,39 @@
           });
 
           document.getElementById('monthContext').textContent =
-            `Data: ${month} · Latest: ${latestDate} · ${uniqueDays.length} trading days`;
-          return; // success, stop trying
+            `Active: ${month} · Latest entry: ${latestDate} · ${uniqueDays.length} trading days`;
+          return; // ✅ success — stop trying further months
 
         } catch(e) {
-          console.warn('Fuel fetch failed for', month, e);
+          console.warn('Fuel fetch error for', month, e);
         }
       }
 
-      // If all fail
+      // All months failed
       ['DX','UX','VP'].forEach(p => setTickerError(p, 'Data unavailable'));
       document.getElementById('monthContext').textContent = 'Could not load fuel data';
     }
 
     // ─── GAS DATA FETCH ───────────────────────────────────────────────────────
     async function fetchGasData() {
-      const months = Object.keys(GAS_SOURCES);
+      const orderedMonths = getOrderedMonths(GAS_SOURCES);
 
-      for (const month of months) {
+      for (const month of orderedMonths) {
         try {
           const resp = await fetch(GAS_SOURCES[month]);
           if (!resp.ok) continue;
-          const text = await resp.text();
-          const lines = text.trim().split('\n');
 
-          // Row 0 = product labels, cols 1..n = dates
+          const text = await resp.text();
+
+          // Guard: HTML response means wrong URL format
+          if (text.trim().startsWith('<!')) {
+            console.warn(`Skipping gas ${month} — response is HTML not CSV`);
+            continue;
+          }
+
+          const lines = text.trim().split('\n');
           const headerRow = parseCsvLine(lines[0]);
+
           const dates = [];
           for (let i = 1; i < headerRow.length; i++) {
             const raw = headerRow[i].trim();
@@ -933,23 +507,18 @@
             }
           }
 
-          let totalKG = 0;
-          let todayKG = 0;
-          let hasTodayData = false;
+          let totalKG = 0, todayKG = 0, hasTodayData = false;
           const validDates = new Set();
 
           for (let ri = 1; ri < lines.length; ri++) {
             const cols = parseCsvLine(lines[ri]);
             const productName = (cols[0] || '').trim().toUpperCase();
-            if (!productName || productName.includes('TOTAL')) continue;
-            // Only count refills (not EMPTY)
-            if (productName.includes('EMPTY')) continue;
-            // Get KG per cylinder
+            if (!productName || productName.includes('TOTAL') || productName.includes('EMPTY')) continue;
             let kgPer = 0;
             if (productName.includes('45')) kgPer = 45;
             else if (productName.includes('25')) kgPer = 25;
             else if (productName.includes('13')) kgPer = 13;
-            else if (productName.includes('6')) kgPer = 6;
+            else if (productName.includes('6'))  kgPer = 6;
             if (!kgPer) continue;
 
             for (let ci = 1; ci < cols.length && ci <= dates.length; ci++) {
@@ -959,18 +528,21 @@
               const kg = pieces * kgPer;
               totalKG += kg;
               validDates.add(dates[ci-1]);
-              if (dates[ci-1] === TODAY_STR) {
-                todayKG += kg;
-                hasTodayData = true;
-              }
+              if (dates[ci-1] === TODAY_STR) { todayKG += kg; hasTodayData = true; }
             }
           }
 
-          if (!validDates.size) continue;
+          // KEY FIX: skip month with no data yet
+          if (!validDates.size) {
+            console.log(`${month}: no gas records yet, trying previous month…`);
+            continue;
+          }
 
-          const isCurrent = isCurrentMonth(month);
-          const daysElapsed = isCurrent
-            ? Math.max(TODAY.getDate() - 1, 1)
+          const now = new Date();
+          const monthDate = new Date(month + ' 1');
+          const isCurrentMonth = now.getFullYear() === monthDate.getFullYear() && now.getMonth() === monthDate.getMonth();
+          const daysElapsed = isCurrentMonth
+            ? Math.max(now.getDate() - 1, 1)
             : validDates.size;
 
           const avgKG = totalKG / daysElapsed;
@@ -978,15 +550,15 @@
           const pctOfTarget = ((avgKG / dailyTarget) * 100).toFixed(0);
           const vsClass = avgKG >= dailyTarget ? 'up' : avgKG >= dailyTarget * 0.85 ? 'flat' : 'down';
           const vsText = (avgKG >= dailyTarget ? '▲ ' : '▼ ') + pctOfTarget + '% of target';
-          let sub = `Avg over ${daysElapsed} day${daysElapsed > 1 ? 's' : ''}`;
+          let sub = `Avg · ${month} · ${daysElapsed} day${daysElapsed > 1 ? 's' : ''}`;
           if (hasTodayData && todayKG > 0) {
             sub = `Today: ${todayKG.toLocaleString(undefined,{maximumFractionDigits:0})} KG`;
           }
           setTicker('LPG', avgKG, 'KG / day', sub, vsClass, vsText);
-          return;
+          return; // ✅ success
 
         } catch(e) {
-          console.warn('Gas fetch failed for', month, e);
+          console.warn('Gas fetch error for', month, e);
         }
       }
       setTickerError('LPG', 'Data unavailable');
@@ -1000,13 +572,10 @@
       document.getElementById('themeLabel').textContent = isLight ? 'Dark' : 'Light';
       localStorage.setItem('ke-theme', theme);
     }
-
     function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme') || 'dark';
       applyTheme(current === 'dark' ? 'light' : 'dark');
     }
-
-    // Load saved preference on boot (before paint to avoid flash)
     (function() {
       const saved = localStorage.getItem('ke-theme') || 'dark';
       applyTheme(saved);
