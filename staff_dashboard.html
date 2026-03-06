@@ -395,12 +395,12 @@
   <div class="header">
     <div class="header-left">
       <h1>Staff Shortages Dashboard</h1>
-      <div class="subtitle">Mangu Rd Shell Service Station · Kiryan Energy Ltd · Daily Cash Variance</div>
+      <div class="subtitle">Mangu Rd Shell Service Station · Kiryan Energy Ltd · <span id="header-subtitle">Daily Cash Variance</span></div>
     </div>
     <div class="header-right">
       <div id="live-clock">--:--:--</div>
-      <strong id="header-month">Loading…</strong>
-      <div id="header-range" style="opacity:.7;font-size:.85em;"></div>
+      <div id="header-month" style="font-family:'Barlow Condensed',sans-serif;font-size:1.7em;font-weight:900;color:white;letter-spacing:1px;margin-top:6px;line-height:1;">Loading…</div>
+      <div id="header-range" style="opacity:.65;font-size:.82em;margin-top:4px;font-family:'Barlow',sans-serif;"></div>
     </div>
   </div>
 
@@ -459,7 +459,7 @@
    Add new months at the TOP of this object
 ============================================================ */
 const DATA_SOURCES = {
-  "February 2026":    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWCk42WV4zp0FBWtNJmxIsFW88QPRxE-2S8cnKG205VfA9ntl_2xMhrTyuRPWS82kDtaszDFDyv7r5/pub?gid=993195447&single=true&output=csv",   // paste URL here when sheet is ready
+  "February 2026": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWCk42WV4zp0FBWtNJmxIsFW88QPRxE-2S8cnKG205VfA9ntl_2xMhrTyuRPWS82kDtaszDFDyv7r5/pub?gid=993195447&single=true&output=csv",
   "January 2026":  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRT8Kama3jzM7pEBPHUY-hUKgiV5Mbp0VC5CN4_-r2MckRoU2xxGcwQb31qeRKjXLg2NHH0eDQlmu3C/pub?gid=993195447&single=true&output=csv",
   "December 2025": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS6iyMOviuAKEPtY-l7IOcbpkpWIm6hHVz5ongtl9A6xv2idj2VqJ5shpPcteJ-QAMsdQvMgYUpaQec/pub?gid=993195447&single=true&output=csv",
   "November 2025": "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7ZVd1O2MMZPQ-eNdmAdfyzuTXLa-KOMwxFibhN0c5nBm1TywXnsyElaKeifVZHH3HOnTL8xZkiHlJ/pub?gid=993195447&single=true&output=csv",
@@ -548,10 +548,11 @@ function loadMonth(month){
   filteredData=[...currentData];
 
   /* header info */
-  document.getElementById('header-month').textContent=month;
+  document.getElementById('header-month').textContent = month;
+  document.getElementById('header-subtitle').textContent = 'Viewing: ' + month;
   if(currentData.length){
     const d=currentData.map(r=>r.day).sort();
-    document.getElementById('header-range').textContent=`${d[0]} → ${d[d.length-1]}`;
+    document.getElementById('header-range').textContent=`📅 ${d[0]} → ${d[d.length-1]} · ${currentData.length} days`;
   }
 
   setDateDefaults();
